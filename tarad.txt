@@ -3,7 +3,13 @@ Library    Selenium2Library
 *** Variables ***
 
 *** Testcases ***
-shopping cart choose prd and qty
+ขั้นตอนซื้อสินค้า
+	สั่งซื้อสินค้าแบบไม่เป็นสมาชิค
+	เลือกวิธีการชำระเงินด้วย counter service
+	ระบุที่อยู่จัดส่งสินค้า
+
+*** Keywords ***
+สั่งซื้อสินค้าแบบไม่เป็นสมาชิค
 	Open Browser     http://www.tarad.com/product/6126300
 	Title Should Be     ซื้อ 1 แถม 1 แบตสำรอง Eloop E8 ของแท้ 8,000 mAh # 6126300
 	Select Radio Button    option_id    169991
@@ -12,17 +18,32 @@ shopping cart choose prd and qty
 	
 	Wait Until Page Contains Element    xpath=//div[@id='flyout_cart']/div[@class='getitem5']/span[@class='header12_css']
 	Element Should Contain    xpath=//div[@id='flyout_cart']/div[@class='getitem5']/span[@class='header12_css']    5 ชิ้น
-	#Wait Until Page Contains Element    xpath=//div[@id='flyout_cart']/div[@class='getitem6']/span[@class='header12_css']
 	Element Should Contain    xpath=//div[@id='flyout_cart']/div[@class='getitem6']/span[@class='header12_css']    4,950.00 บาท
 
 	Click Element    xpath=//div[@id='flyout_cart']/div[@class='getitem8']/a[@class='normal_a']/span[@id='btn-payment']
-buy item by non member
+
 	Wait Until Page Contains Element    xpath=//form[@id='login-frm-guest']/fieldset/div[@class='login_check_register_btn_TH']/button[@class='btn btn-large btn-danger']
+
 	Click Button    สั่งซื้อทันที
-Choose payment by counter service
+
+เลือกวิธีการชำระเงินด้วย counter service
 	Click Element    xpath=//li[@id='counter-service']/a
-	Sleep    2
-	#Wait Until Element Is Visible    id=next-btn
+	Sleep    3
+	Wait Until Element Is Visible    id=next-btn
 	Click Button     id=next-btn
 
-*** Keywords ***
+ระบุที่อยู่จัดส่งสินค้า
+	Input Text    id=send_firstname    banana
+	Input Text    id=send_lastname     ccc
+	Input Text    id=send_address     cccc
+	Select From List    id=send_country    TH
+	Sleep    1
+	Select From List    id=send_province    1
+	Sleep    1
+	Select From List    id=send_city    828_10400
+	Input Text    id=send_district    ดินแดง
+	Input Text    id=send_postcode    10400
+	Input Text    id=send_email    aaaaa@gmail.com
+	Input Text    id=send_mobile    0802175557
+	Input Text    id=send_remark    รายละเอียดเพิ่มเติม
+	Click Button  id=next-btn
