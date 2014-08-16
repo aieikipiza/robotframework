@@ -1,0 +1,34 @@
+*** Settings ***
+Documentation    ค้นหาข้อมูลจากระบบ www.google.com
+Library    Selenium2Library
+Test Teardown    Close All Browsers
+*** Variables ***
+${GOOGLE URL}    http://www.google.com
+
+*** Testcases ***
+ค้นหาข้อมูลโรคติดต่อจาก google
+	[Template]    ค้นหาข้อมูล
+	#---------------------------------#
+	#   Keyword  |  Expected Result   #
+	#---------------------------------#
+		อีโบล่า      อีโบล่า
+		ebola        ebola
+	
+*** Keywords ***
+ค้นหาข้อมูล
+	[Arguments]    ${keyword}    ${expected result}
+	เปิดหน้าแรกของ google
+	ใส่คำที่ต้องการค้นหา    ${keyword}
+	แสดงผลที่หน้าจอ    ${expected result}
+	
+เปิดหน้าแรกของ google
+	Open Browser    ${GOOGLE URL}
+
+ใส่คำที่ต้องการค้นหา
+	[Arguments]    ${keyword}
+	Input Text                  id=gbqfq    ${keyword}
+	Click Button                id=gbqfb
+	
+แสดงผลที่หน้าจอ
+	[Arguments]    ${expected result}
+	Wait Until Page Contains                ${expected result}

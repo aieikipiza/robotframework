@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20140816 14:32:17.894" generator="Robot 2.8.5 (Python 2.7.8 on win32)">
+<suite source="C:\robot\standard_library.txt" id="s1" name="Standard Library">
+<test id="s1-t1" name="Demo">
+<kw type="kw" name="@{my_words} = BuiltIn.Create List">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>Hello</arg>
+<arg>Robot</arg>
+<arg>SPRINT3R</arg>
+<arg>X</arg>
+<arg>Framework</arg>
+</arguments>
+<msg timestamp="20140816 14:32:17.961" level="INFO">@{my_words} = [ Hello | Robot | SPRINT3R | X | Framework ]</msg>
+<status status="PASS" endtime="20140816 14:32:17.961" starttime="20140816 14:32:17.959"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>\n${my_words}</arg>
+<arg>console=True</arg>
+</arguments>
+<msg timestamp="20140816 14:32:17.962" level="INFO">
+[u'Hello', u'Robot', u'SPRINT3R', u'X', u'Framework']</msg>
+<status status="PASS" endtime="20140816 14:32:17.962" starttime="20140816 14:32:17.962"></status>
+</kw>
+<kw type="kw" name="${length} = BuiltIn.Get Length">
+<doc>Returns and logs the length of the given item.</doc>
+<arguments>
+<arg>${my_words}</arg>
+</arguments>
+<msg timestamp="20140816 14:32:17.963" level="INFO">Length is 5</msg>
+<msg timestamp="20140816 14:32:17.963" level="INFO">${length} = 5</msg>
+<status status="PASS" endtime="20140816 14:32:17.963" starttime="20140816 14:32:17.963"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>\nLength = ${length}</arg>
+<arg>console=True</arg>
+</arguments>
+<msg timestamp="20140816 14:32:17.964" level="INFO">
+Length = 5</msg>
+<status status="PASS" endtime="20140816 14:32:17.964" starttime="20140816 14:32:17.964"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Length Should Be">
+<doc>Verifies that the length of the given item is correct.</doc>
+<arguments>
+<arg>${my_words}</arg>
+<arg>5</arg>
+</arguments>
+<msg timestamp="20140816 14:32:17.965" level="INFO">Length is 5</msg>
+<status status="PASS" endtime="20140816 14:32:17.965" starttime="20140816 14:32:17.965"></status>
+</kw>
+<kw type="for" name="${word} IN [ @{my_words} ]">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="foritem" name="${word} = Hello">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${word}' == 'X'</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<status status="PASS" endtime="20140816 14:32:17.966" starttime="20140816 14:32:17.966"></status>
+</kw>
+<kw type="kw" name="${Length} = BuiltIn.Get Length">
+<doc>Returns and logs the length of the given item.</doc>
+<arguments>
+<arg>${word}</arg>
+</arguments>
+<msg timestamp="20140816 14:32:17.967" level="INFO">Length is 5</msg>
+<msg timestamp="20140816 14:32:17.967" level="INFO">${Length} = 5</msg>
+<status status="PASS" endtime="20140816 14:32:17.967" starttime="20140816 14:32:17.967"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>\n${word} have length ${length}</arg>
+<arg>console=True</arg>
+</arguments>
+<msg timestamp="20140816 14:32:17.968" level="INFO">
+Hello have length 5</msg>
+<status status="PASS" endtime="20140816 14:32:17.968" starttime="20140816 14:32:17.968"></status>
+</kw>
+<status status="PASS" endtime="20140816 14:32:17.968" starttime="20140816 14:32:17.966"></status>
+</kw>
+<kw type="foritem" name="${word} = Robot">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${word}' == 'X'</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<status status="PASS" endtime="20140816 14:32:17.969" starttime="20140816 14:32:17.969"></status>
+</kw>
+<kw type="kw" name="${Length} = BuiltIn.Get Length">
+<doc>Returns and logs the length of the given item.</doc>
+<arguments>
+<arg>${word}</arg>
+</arguments>
+<msg timestamp="20140816 14:32:17.970" level="INFO">Length is 5</msg>
+<msg timestamp="20140816 14:32:17.970" level="INFO">${Length} = 5</msg>
+<status status="PASS" endtime="20140816 14:32:17.970" starttime="20140816 14:32:17.970"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>\n${word} have length ${length}</arg>
+<arg>console=True</arg>
+</arguments>
+<msg timestamp="20140816 14:32:17.971" level="INFO">
+Robot have length 5</msg>
+<status status="PASS" endtime="20140816 14:32:17.971" starttime="20140816 14:32:17.971"></status>
+</kw>
+<status status="PASS" endtime="20140816 14:32:17.972" starttime="20140816 14:32:17.969"></status>
+</kw>
+<kw type="foritem" name="${word} = SPRINT3R">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${word}' == 'X'</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<status status="PASS" endtime="20140816 14:32:17.972" starttime="20140816 14:32:17.972"></status>
+</kw>
+<kw type="kw" name="${Length} = BuiltIn.Get Length">
+<doc>Returns and logs the length of the given item.</doc>
+<arguments>
+<arg>${word}</arg>
+</arguments>
+<msg timestamp="20140816 14:32:17.973" level="INFO">Length is 8</msg>
+<msg timestamp="20140816 14:32:17.973" level="INFO">${Length} = 8</msg>
+<status status="PASS" endtime="20140816 14:32:17.973" starttime="20140816 14:32:17.973"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>\n${word} have length ${length}</arg>
+<arg>console=True</arg>
+</arguments>
+<msg timestamp="20140816 14:32:17.974" level="INFO">
+SPRINT3R have length 8</msg>
+<status status="PASS" endtime="20140816 14:32:17.974" starttime="20140816 14:32:17.974"></status>
+</kw>
+<status status="PASS" endtime="20140816 14:32:17.975" starttime="20140816 14:32:17.972"></status>
+</kw>
+<kw type="foritem" name="${word} = X">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${word}' == 'X'</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<kw type="kw" name="BuiltIn.Exit For Loop">
+<doc>Stops executing the enclosing for loop.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140816 14:32:17.976" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" endtime="20140816 14:32:17.976" starttime="20140816 14:32:17.976"></status>
+</kw>
+<status status="PASS" endtime="20140816 14:32:17.976" starttime="20140816 14:32:17.975"></status>
+</kw>
+<status status="PASS" endtime="20140816 14:32:17.976" starttime="20140816 14:32:17.975"></status>
+</kw>
+<status status="PASS" endtime="20140816 14:32:17.976" starttime="20140816 14:32:17.965"></status>
+</kw>
+<kw type="for" name="${word} IN [ @{my_words} ]">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="foritem" name="${word} = Hello">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${word}' == 'X'</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<status status="PASS" endtime="20140816 14:32:17.977" starttime="20140816 14:32:17.977"></status>
+</kw>
+<kw type="kw" name="${Length} = BuiltIn.Get Length">
+<doc>Returns and logs the length of the given item.</doc>
+<arguments>
+<arg>${word}</arg>
+</arguments>
+<msg timestamp="20140816 14:32:17.978" level="INFO">Length is 5</msg>
+<msg timestamp="20140816 14:32:17.978" level="INFO">${Length} = 5</msg>
+<status status="PASS" endtime="20140816 14:32:17.978" starttime="20140816 14:32:17.978"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>\n${word} have length ${length}</arg>
+<arg>console=True</arg>
+</arguments>
+<msg timestamp="20140816 14:32:17.979" level="INFO">
+Hello have length 5</msg>
+<status status="PASS" endtime="20140816 14:32:17.979" starttime="20140816 14:32:17.979"></status>
+</kw>
+<status status="PASS" endtime="20140816 14:32:17.979" starttime="20140816 14:32:17.977"></status>
+</kw>
+<kw type="foritem" name="${word} = Robot">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${word}' == 'X'</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<status status="PASS" endtime="20140816 14:32:17.981" starttime="20140816 14:32:17.980"></status>
+</kw>
+<kw type="kw" name="${Length} = BuiltIn.Get Length">
+<doc>Returns and logs the length of the given item.</doc>
+<arguments>
+<arg>${word}</arg>
+</arguments>
+<msg timestamp="20140816 14:32:17.981" level="INFO">Length is 5</msg>
+<msg timestamp="20140816 14:32:17.981" level="INFO">${Length} = 5</msg>
+<status status="PASS" endtime="20140816 14:32:17.981" starttime="20140816 14:32:17.981"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>\n${word} have length ${length}</arg>
+<arg>console=True</arg>
+</arguments>
+<msg timestamp="20140816 14:32:17.982" level="INFO">
+Robot have length 5</msg>
+<status status="PASS" endtime="20140816 14:32:17.982" starttime="20140816 14:32:17.982"></status>
+</kw>
+<status status="PASS" endtime="20140816 14:32:17.983" starttime="20140816 14:32:17.980"></status>
+</kw>
+<kw type="foritem" name="${word} = SPRINT3R">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${word}' == 'X'</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<status status="PASS" endtime="20140816 14:32:17.983" starttime="20140816 14:32:17.983"></status>
+</kw>
+<kw type="kw" name="${Length} = BuiltIn.Get Length">
+<doc>Returns and logs the length of the given item.</doc>
+<arguments>
+<arg>${word}</arg>
+</arguments>
+<msg timestamp="20140816 14:32:17.984" level="INFO">Length is 8</msg>
+<msg timestamp="20140816 14:32:17.984" level="INFO">${Length} = 8</msg>
+<status status="PASS" endtime="20140816 14:32:17.984" starttime="20140816 14:32:17.984"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>\n${word} have length ${length}</arg>
+<arg>console=True</arg>
+</arguments>
+<msg timestamp="20140816 14:32:17.985" level="INFO">
+SPRINT3R have length 8</msg>
+<status status="PASS" endtime="20140816 14:32:17.985" starttime="20140816 14:32:17.985"></status>
+</kw>
+<status status="PASS" endtime="20140816 14:32:17.986" starttime="20140816 14:32:17.983"></status>
+</kw>
+<kw type="foritem" name="${word} = X">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${word}' == 'X'</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<kw type="kw" name="BuiltIn.Exit For Loop">
+<doc>Stops executing the enclosing for loop.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140816 14:32:17.987" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" endtime="20140816 14:32:17.987" starttime="20140816 14:32:17.987"></status>
+</kw>
+<status status="PASS" endtime="20140816 14:32:17.987" starttime="20140816 14:32:17.986"></status>
+</kw>
+<status status="PASS" endtime="20140816 14:32:17.987" starttime="20140816 14:32:17.986"></status>
+</kw>
+<status status="PASS" endtime="20140816 14:32:17.987" starttime="20140816 14:32:17.976"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20140816 14:32:17.988" critical="yes" starttime="20140816 14:32:17.958"></status>
+</test>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="PASS" endtime="20140816 14:32:17.988" starttime="20140816 14:32:17.895"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" pass="1" id="s1" name="Standard Library">Standard Library</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
