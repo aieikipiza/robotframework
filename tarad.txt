@@ -7,4 +7,6 @@ shopping cart
 	Open Browser     http://www.tarad.com/product/6126300
 	Title Should Be     ซื้อ 1 แถม 1 แบตสำรอง Eloop E8 ของแท้ 8,000 mAh # 6126300
 	Select Radio Button    option_id    169991
+	Select From List    id=product_qty    5
+	Click Button    id=f_buy
 *** Keywords ***
