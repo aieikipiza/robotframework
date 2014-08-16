@@ -3,10 +3,26 @@ Library    Selenium2Library
 *** Variables ***
 
 *** Testcases ***
-shopping cart
+shopping cart choose prd and qty
 	Open Browser     http://www.tarad.com/product/6126300
 	Title Should Be     ซื้อ 1 แถม 1 แบตสำรอง Eloop E8 ของแท้ 8,000 mAh # 6126300
 	Select Radio Button    option_id    169991
 	Select From List    id=product_qty    5
 	Click Button    id=f_buy
+	
+	Wait Until Page Contains Element    xpath=//div[@id='flyout_cart']/div[@class='getitem5']/span[@class='header12_css']
+	Element Should Contain    xpath=//div[@id='flyout_cart']/div[@class='getitem5']/span[@class='header12_css']    5 ชิ้น
+	#Wait Until Page Contains Element    xpath=//div[@id='flyout_cart']/div[@class='getitem6']/span[@class='header12_css']
+	Element Should Contain    xpath=//div[@id='flyout_cart']/div[@class='getitem6']/span[@class='header12_css']    4,950.00 บาท
+
+	Click Element    xpath=//div[@id='flyout_cart']/div[@class='getitem8']/a[@class='normal_a']/span[@id='btn-payment']
+buy item by non member
+	Wait Until Page Contains Element    xpath=//form[@id='login-frm-guest']/fieldset/div[@class='login_check_register_btn_TH']/button[@class='btn btn-large btn-danger']
+	Click Button    สั่งซื้อทันที
+Choose payment by counter service
+	Click Element    xpath=//li[@id='counter-service']/a
+	Sleep    2
+	#Wait Until Element Is Visible    id=next-btn
+	Click Button     id=next-btn
+
 *** Keywords ***
